@@ -20,13 +20,13 @@ void quick_sort(int *array, size_t size)
  */
 void quick_aux(int *array, size_t size, int min, int max)
 {
-	int cont;
+	int smart;
 
 	if (max - min > 0)
 	{
-		cont = quick_mix(array, size, min, max);
-		quick_aux(array, size, min, cont - 1);
-		quick_aux(array, size, cont + 1, max);
+		smart = quick_mix(array, size, min, max);
+		quick_aux(array, size, min, smart - 1);
+		quick_aux(array, size, smart + 1, max);
 	}
 }
 /**
@@ -40,12 +40,12 @@ void quick_aux(int *array, size_t size, int min, int max)
 int quick_mix(int *array, size_t size, int min, int max)
 {
 
-	int *cont, tmp, aux;
+	int *smart, tmp, aux;
 
-	cont = array + max;
+	smart = array + max;
 	for (tmp = aux = min; aux < max; aux++)
 	{
-		if (array[aux] < *cont)
+		if (array[aux] < *smart)
 		{
 			if (tmp < aux)
 			{
@@ -56,9 +56,9 @@ int quick_mix(int *array, size_t size, int min, int max)
 		}
 	}
 
-	if (array[tmp] > *cont)
+	if (array[tmp] > *smart)
 	{
-		swap(array + tmp, cont);
+		swap(array + tmp, smart);
 		print_array(array, size);
 	}
 

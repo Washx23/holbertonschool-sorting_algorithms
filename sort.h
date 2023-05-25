@@ -25,7 +25,10 @@ typedef struct listint_s
 void bubble_sort(int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
+void print_array(int *a, int n);
 void quick_sort(int *array, size_t size);
 void print_list(const listint_t *list);
-void print_array(int *a, int n);
+void swap(int *a, int *b);
+void quick_aux(int *array, size_t size, int min, int max);
+int quick_mix(int *array, size_t size, int min, int max);
 #endif
